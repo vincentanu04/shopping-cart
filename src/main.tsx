@@ -4,7 +4,7 @@ import App from './App'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 
 const client = new ApolloClient({
-  uri: 'https://api.escuelajs.co/graphql',
+  uri: "https://mock.shop/api",
   cache: new InMemoryCache(),
 });
 

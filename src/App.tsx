@@ -1,28 +1,16 @@
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './Theme';
 import CssBaseline from '@mui/material/CssBaseline';
-import { Hero, Navbar } from './components';
-import { Box } from '@mui/material';
-
-const theme = createTheme({
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        body: {
-          margin: 0,
-        },
-      },
-    },
-  },
-});
+import { Outlet, RouterProvider } from 'react-router-dom';
+import router from './routes/routes';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box>
-        <Navbar/>
-        <Hero />
-      </Box>
+      <RouterProvider router={router}>
+        <Outlet />
+      </RouterProvider>
     </ThemeProvider>
   );
 }

@@ -1,38 +1,52 @@
 import { ShoppingCart } from '@mui/icons-material'
 import { AppBar, Badge, Box, Button, ButtonGroup, IconButton, Toolbar, Typography } from '@mui/material'
+import { useState } from 'react'
+import { NavButton } from '.'
 
 const Navbar = () => {
+  const [currentPage, setCurrentPage] = useState('Homepage')
+  console.log(currentPage)
   return (
-    <Box>
-      <AppBar position='static'>
+    <>
+      <AppBar position='sticky'>
         <Toolbar>
           <Typography 
             variant='h4' 
             component='a' 
-            href="#"
+            href='/'
             sx={{
-                // display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.15rem',
-                color: 'inherit',
+                display: { xs: 'none', md: 'flex' },
+                fontWeight: 900,
+                letterSpacing: '.2rem',
                 textDecoration: 'none',
-                flexGrow: 1,
-            }}>
+            }}
+            >
                 Attire Avenue
             </Typography>
-            <Box mr={2}>
-                <ButtonGroup color="secondary" variant="contained">
-                <Button color="success">
-                    Home
-                </Button>
-                <Button>
-                    Clothes
-                </Button>
-                <Button>
-                    Shoes
-                </Button>
-                </ButtonGroup>
+            <Box mr={2} ml={'auto'}>
+              <ButtonGroup color="secondary" variant="contained">
+                <NavButton 
+                currentPage={currentPage}
+                page='Homepage'
+                onClick={setCurrentPage}
+                href='/'>
+                  Home
+                </NavButton>
+                <NavButton 
+                currentPage={currentPage}
+                page='Clothespage'
+                onClick={setCurrentPage}
+                href='/clothes'>
+                  Clothes
+                </NavButton>
+                <NavButton 
+                currentPage={currentPage}
+                page='Shoespage'
+                onClick={setCurrentPage}
+                href='/'>
+                  Shoes
+                </NavButton>
+              </ButtonGroup>
             </Box>
             <IconButton>
             <Badge badgeContent={1} color="error">
@@ -41,7 +55,7 @@ const Navbar = () => {
             </IconButton>
         </Toolbar>
       </AppBar>
-    </Box>
+    </>
   )
 }
 

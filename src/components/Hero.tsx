@@ -6,12 +6,14 @@ const Hero = () => {
     display={'flex'} 
     flexDirection={'column'} 
     alignItems={'center'} 
-    padding={6}
-    paddingInline={40}
-    gap={3}
+    padding={5}
+    sx={{
+      paddingInline: { xs: 20, md: 36, },
+    }}
+    gap={2}
     textAlign={'center'}>
-        <Typography variant="h4" fontWeight={600}>Your one stop shop for all your fashion needs</Typography>
-        <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde delectus asperiores, incidunt quisquam inventore ut ex vel iure nostrum voluptate qui, assumenda modi quod nemo ab magni ad totam quo.</Typography>
+        <Typography variant="h4" fontWeight={600} fontSize={'2.5rem'}>Your one stop shop for all your fashion needs!</Typography>
+        <Typography>Discover style redefined at Attire Avenue! Your ultimate fashion destination for chic clothing, trendy accessories, and stylish footwear. Elevate your style effortlessly with Attire Avenue – your go-to for fashion essentials!</Typography>
         <Button variant="contained" color="secondary">Clothes</Button>
         <Button variant="contained" color="secondary">Shoes</Button>
     </Box>

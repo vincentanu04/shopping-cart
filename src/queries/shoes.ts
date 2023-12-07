@@ -2,16 +2,29 @@ import { gql } from "@apollo/client";
 
 const SHOES_QUERY = gql`
     query {
-        products(categoryId: 4) {
+        product(id: "gid://shopify/Product/7982905098262") {
             id
             title
-            price
             description
-            images
-            category {
+            featuredImage {
             id
-            name
-            image
+            url
+            }
+            variants(first: 3) {
+            edges {
+                cursor
+                node {
+                id
+                title
+                image {
+                    url
+                }
+                price {
+                    amount
+                    currencyCode
+                }
+                }
+            }
             }
         }
     }
