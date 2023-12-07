@@ -9,7 +9,7 @@ const SHOES_QUERY = gql`
             featuredImage {
             id
             url
-            }
+            }s
             variants(first: 3) {
             edges {
                 cursor
