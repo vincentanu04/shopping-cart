@@ -1,25 +1,26 @@
 import { ShoppingCart } from '@mui/icons-material'
-import { AppBar, Badge, Box, Button, ButtonGroup, IconButton, Toolbar, Typography } from '@mui/material'
+import { AppBar, Badge, Box, ButtonGroup, IconButton, Toolbar, Typography } from '@mui/material'
 import { useState } from 'react'
 import { NavButton } from '.'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   const [currentPage, setCurrentPage] = useState('Homepage')
-  console.log(currentPage)
   return (
     <>
       <AppBar position='sticky'>
         <Toolbar>
           <Typography 
             variant='h4' 
-            component='a' 
-            href='/'
+            component={Link} 
+            to='/'
             sx={{
                 display: { xs: 'none', md: 'flex' },
                 fontWeight: 900,
                 letterSpacing: '.2rem',
                 textDecoration: 'none',
             }}
+            onClick={() => setCurrentPage('Homepage')}
             >
                 Attire Avenue
             </Typography>
@@ -28,22 +29,22 @@ const Navbar = () => {
                 <NavButton 
                 currentPage={currentPage}
                 page='Homepage'
-                onClick={setCurrentPage}
-                href='/'>
+                setCurrentPage={setCurrentPage}
+                to='/'>
                   Home
                 </NavButton>
                 <NavButton 
                 currentPage={currentPage}
                 page='Clothespage'
-                onClick={setCurrentPage}
-                href='/clothes'>
+                setCurrentPage={setCurrentPage}
+                to='/clothes'>
                   Clothes
                 </NavButton>
                 <NavButton 
                 currentPage={currentPage}
                 page='Shoespage'
-                onClick={setCurrentPage}
-                href='/'>
+                setCurrentPage={setCurrentPage}
+                to='/'>
                   Shoes
                 </NavButton>
               </ButtonGroup>
