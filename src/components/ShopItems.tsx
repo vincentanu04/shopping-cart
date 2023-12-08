@@ -1,16 +1,14 @@
 import { Box } from "@mui/material"
 import { ShopItem } from "."
 
-// interface ShopItemsProps {
-//   shopItems: ShopItem[];
-// }
-
-const ShopItems = ({ shopItems }) => {
-  console.log(shopItems)
+const ShopItems = ({ shopItems, itemsPerRow }) => {
+  const flexBasis = `${100 / itemsPerRow}% `
   return (
-    <Box display={'flex'}>
+    <Box display={'flex'} flexWrap={'wrap'}>
       {shopItems.map((shopItem) => (
-        <ShopItem key={shopItem.node.id} shopItem={shopItem}/>
+        <Box key={shopItem.node.id} flexBasis={flexBasis}>
+          <ShopItem shopItem={shopItem}/>
+        </Box>
       ))}
     </Box>
   )

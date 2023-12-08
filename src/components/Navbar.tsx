@@ -5,47 +5,47 @@ import { NavButton } from '.'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-  const [currentPage, setCurrentPage] = useState('Homepage')
+  const [currentPage, setCurrentPage] = useState('Home')
   return (
     <>
       <AppBar position='sticky'>
         <Toolbar>
           <Typography 
+            color={'#023306'}
             variant='h4' 
             component={Link} 
             to='/'
             sx={{
-                display: { xs: 'none', md: 'flex' },
                 fontWeight: 900,
                 letterSpacing: '.2rem',
                 textDecoration: 'none',
             }}
-            onClick={() => setCurrentPage('Homepage')}
+            onClick={() => setCurrentPage('Home')}
             >
                 Attire Avenue
             </Typography>
             <Box mr={2} ml={'auto'}>
-              <ButtonGroup color="secondary" variant="contained">
+              <ButtonGroup color="secondary" variant="contained" >
                 <NavButton 
                 currentPage={currentPage}
-                page='Homepage'
+                page='Home'
                 setCurrentPage={setCurrentPage}
                 to='/'>
                   Home
                 </NavButton>
                 <NavButton 
                 currentPage={currentPage}
-                page='Clothespage'
+                page='Men'
                 setCurrentPage={setCurrentPage}
-                to='/clothes'>
-                  Clothes
+                to='/men'>
+                  Men's
                 </NavButton>
                 <NavButton 
                 currentPage={currentPage}
-                page='Shoespage'
+                page='Women'
                 setCurrentPage={setCurrentPage}
-                to='/'>
-                  Shoes
+                to='/women'>
+                  Women's
                 </NavButton>
               </ButtonGroup>
             </Box>

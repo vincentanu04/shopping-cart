@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Homepage } from "../pages";
+import { Homepage, MenPage } from "../pages";
 import Layout from "../pages/Layout";
+import WomenPage from "../pages/WomenPage";
 
 
   
@@ -13,8 +14,12 @@ const router = createBrowserRouter([
         element: <Homepage />,
       },
       {
-        path: '/clothes',
-        element: 1,
+        path: '/men',
+        element: <MenPage />,
+      },
+      {
+        path: '/women',
+        element: <WomenPage />,
       }
     ],
   }

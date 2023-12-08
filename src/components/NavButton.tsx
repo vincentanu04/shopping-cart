@@ -7,6 +7,9 @@ const NavButton = ({ page, currentPage, children, setCurrentPage, to }) => (
       onClick={() => setCurrentPage(page)}
       to={to}
       LinkComponent={Link}
+      sx={{
+        paddingInline: '1.25em'
+      }}
     >
         {children}
     </Button>

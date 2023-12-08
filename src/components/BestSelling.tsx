@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client"
 import { Box, Typography } from "@mui/material"
 import { BEST_SELLING_QUERY } from "../queries"
-import { ShopItems, LoadingSkeletonCard } from "."
+import { ShopItems, LoadingSkeletonCards } from "."
 
 const BestSelling = () => {
   const { data, loading, error } = useQuery(BEST_SELLING_QUERY);
@@ -11,7 +11,7 @@ const BestSelling = () => {
   return (
     <Box
     textAlign={'center'}
-    padding={4}
+    padding={6}
     display={'flex'}
     flexDirection={'column'}
     alignItems={'center'}
@@ -20,13 +20,8 @@ const BestSelling = () => {
         Our best selling items
       </Typography>
       {loading 
-        ? <Box display={'flex'} gap={4}>
-            <LoadingSkeletonCard />
-            <LoadingSkeletonCard />
-            <LoadingSkeletonCard />
-            <LoadingSkeletonCard />
-          </Box>
-        : <ShopItems shopItems={data.products.edges} />}
+        ? <LoadingSkeletonCards numberOfItems={4} itemsPerRow={4}/>
+        : <ShopItems shopItems={data.products.edges} itemsPerRow={4}/>}
     </Box>
   )
 }

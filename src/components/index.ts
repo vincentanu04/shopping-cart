@@ -10,4 +10,6 @@ export { default as ShopItems } from './ShopItems'
 
 export { default as LoadingSkeletonCard } from './LoadingSkeletonCard'
 
+export { default as LoadingSkeletonCards } from './LoadingSkeletonCards'
+
 export { default as NavButton } from './NavButton'
