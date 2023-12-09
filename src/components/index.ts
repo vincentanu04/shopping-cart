@@ -13,3 +13,5 @@ export { default as LoadingSkeletonCard } from './LoadingSkeletonCard'
 export { default as LoadingSkeletonCards } from './LoadingSkeletonCards'
 
 export { default as NavButton } from './NavButton'
+
+export { default as Cart } from './Cart'

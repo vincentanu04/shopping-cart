@@ -1,19 +1,21 @@
 import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-const NavButton = ({ page, currentPage, children, setCurrentPage, to }) => (
+const NavButton = ({ children, to }) => {
+  const location = useLocation();
+
+  return (
     <Button
-      color={currentPage === page ? 'accent' : 'secondary'}
-      onClick={() => setCurrentPage(page)}
+      color={location.pathname === to ? 'accent' : 'secondary'}
       to={to}
-      LinkComponent={Link}
+      component={Link}
       sx={{
         paddingInline: '1.25em'
       }}
     >
         {children}
     </Button>
-);
+);}
 
 export default NavButton;
   

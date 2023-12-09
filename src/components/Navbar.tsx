@@ -1,11 +1,12 @@
 import { ShoppingCart } from '@mui/icons-material'
 import { AppBar, Badge, Box, ButtonGroup, IconButton, Toolbar, Typography } from '@mui/material'
-import { useState } from 'react'
 import { NavButton } from '.'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 const Navbar = () => {
-  const [currentPage, setCurrentPage] = useState('Home')
+  const [cart, setCart] = useState({});
+
   return (
     <>
       <AppBar position='sticky'>
@@ -20,36 +21,28 @@ const Navbar = () => {
                 letterSpacing: '.2rem',
                 textDecoration: 'none',
             }}
-            onClick={() => setCurrentPage('Home')}
             >
                 Attire Avenue
             </Typography>
             <Box mr={2} ml={'auto'}>
               <ButtonGroup color="secondary" variant="contained" >
                 <NavButton 
-                currentPage={currentPage}
-                page='Home'
-                setCurrentPage={setCurrentPage}
                 to='/'>
                   Home
                 </NavButton>
                 <NavButton 
-                currentPage={currentPage}
-                page='Men'
-                setCurrentPage={setCurrentPage}
                 to='/men'>
-                  Men's
+                  Men
                 </NavButton>
                 <NavButton 
-                currentPage={currentPage}
-                page='Women'
-                setCurrentPage={setCurrentPage}
                 to='/women'>
-                  Women's
+                  Women
                 </NavButton>
               </ButtonGroup>
             </Box>
-            <IconButton>
+            <IconButton
+            component={Link}
+            to={'/cart'}>
             <Badge badgeContent={1} color="error">
                 <ShoppingCart color="action"/>
             </Badge>
