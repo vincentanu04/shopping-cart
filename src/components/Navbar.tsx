@@ -2,10 +2,11 @@ import { ShoppingCart } from '@mui/icons-material'
 import { AppBar, Badge, Box, ButtonGroup, IconButton, Toolbar, Typography } from '@mui/material'
 import { NavButton } from '.'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useCart } from '../contexts/CartContext'
+import { isCartEmpty, numberCartItems } from '../utils'
 
 const Navbar = () => {
-  const [cart, setCart] = useState({});
+  const { cart, addToCart } = useCart();
 
   return (
     <>
@@ -43,7 +44,7 @@ const Navbar = () => {
             <IconButton
             component={Link}
             to={'/cart'}>
-            <Badge badgeContent={1} color="error">
+            <Badge badgeContent={numberCartItems(cart)} color="error">
                 <ShoppingCart color="action"/>
             </Badge>
             </IconButton>

@@ -15,3 +15,7 @@ export { default as LoadingSkeletonCards } from './LoadingSkeletonCards'
 export { default as NavButton } from './NavButton'
 
 export { default as Cart } from './Cart'
+
+export { default as ContinueShoppingButton } from './ContinueShoppingButton'
+
+export { default as ShoppingCartItem } from './ShoppingCartItem'

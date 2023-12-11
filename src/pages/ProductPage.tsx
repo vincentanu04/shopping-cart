@@ -20,7 +20,6 @@ const ProductPage = () => {
     return <LoadingProductPage/>; 
   }
 
-  console.log(data)
   if (error || !data || !data.product) {
     return <p>Error loading product data</p>;
   }

@@ -1,14 +1,31 @@
 import { AddShoppingCart } from "@mui/icons-material"
 import { Box, Card, CardActions, CardContent, IconButton, ImageListItem, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
+import { useCart } from "../contexts/CartContext"
+import { getShopItemID } from "../utils"
 
-const ShopItem = ({ shopItem }) => {
+
+interface ShopItemProps {
+
+}
+
+const ShopItem = ({ shopItem }: ShopItemProps) => {
+  const { cart, addToCart } = useCart();
+
+  const cartShopItem = {
+    id: getShopItemID(shopItem),
+    quantity: 1,
+    title: shopItem.node.title,
+    imageURL: shopItem.node.featuredImage.url,
+    price: shopItem.node.variants.edges[0].node.price.amount,
+  }
+
   return (
     <Box p={4} marginBlock={1}>
       <Card>
         <ImageListItem
         component={Link}
-        to={'/products/' + shopItem.node.id.substring(shopItem.node.id.length - 13)}
+        to={'/products/' + getShopItemID(shopItem)}
         >
           <img
           src={shopItem.node.featuredImage.url}
@@ -20,7 +37,7 @@ const ShopItem = ({ shopItem }) => {
             variant="h6" 
             fontSize={'medium'}
             component={Link}
-            to={'/products/' + shopItem.node.id.substring(shopItem.node.id.length - 13)}
+            to={'/products/' + getShopItemID(shopItem)}
             sx={{ 
               position:'relative',
               textDecoration:'none', 
@@ -50,8 +67,7 @@ const ShopItem = ({ shopItem }) => {
           <CardActions>
             <IconButton 
             aria-label="add to cart"
-            component={Link}
-            to={'/products/' + shopItem.node.id.substring(shopItem.node.id.length - 13)}
+            onClick={() => addToCart(cartShopItem)}
             >
               <AddShoppingCart />
             </IconButton>
