@@ -4,11 +4,15 @@ import { PRODUCT_QUERY } from "../queries";
 import { Box, Button, ButtonGroup, Divider, ImageListItem, Typography } from "@mui/material";
 import LoadingProductPage  from "./LoadingProductPage";
 import { useState } from "react";
+import { useCart } from "../contexts/CartContext";
+import { getShopItemID } from "../utils";
 
 const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
   const { productID } = useParams();
   const productIDString = "gid://shopify/Product/" + productID;
+
 
   const { data, loading, error } = useQuery(PRODUCT_QUERY, {
     variables: {
@@ -25,6 +29,14 @@ const ProductPage = () => {
   }
 
   const product = data.product;
+
+  const cartShopItem = {
+    id: product.id.substring(product.id.length - 13),
+    quantity: quantity,
+    title: product.title,
+    imageURL: product.featuredImage.url,
+    price: product.variants.edges[0].node.price.amount,
+  }
 
   return (
     <Box display="flex" alignItems="center"  p={8} gap={8}>
@@ -64,7 +76,13 @@ const ProductPage = () => {
             </Button>
           </ButtonGroup>
         </Box>
-        <Button variant="contained" sx={{width:'100%', height: '2.5em'}}>Add To Cart</Button>  
+        <Button 
+        variant="contained" 
+        sx={{width:'100%', height: '2.5em'}}
+        onClick={() => addToCart(cartShopItem)}
+        >
+          Add To Cart
+        </Button>  
       </Box>
 
     </Box>
