@@ -41,7 +41,7 @@ const ProductPage = () => {
   return (
     <Box display="flex" alignItems="center"  p={8} gap={8}>
       <ImageListItem>
-        <img src={product.featuredImage.url} alt="Product" style={{ width: '40vw'}}/>
+        <img src={product.featuredImage.url} alt="Product" style={{ width: '35vw'}}/>
       </ImageListItem>
       <Box>
         <Typography variant="h2" component="h1" fontWeight={600}>

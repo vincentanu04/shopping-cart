@@ -10,7 +10,7 @@ function App() {
       <CssBaseline />
       <RouterProvider router={router}>
           <Outlet />
-      </RouterProvider>CssBaseline
+      </RouterProvider>
     </ThemeProvider>
   );
 }
