@@ -19,3 +19,5 @@ export { default as Cart } from './Cart'
 export { default as ContinueShoppingButton } from './ContinueShoppingButton'
 
 export { default as ShoppingCartItem } from './ShoppingCartItem'
+
+export { default as ScrollToTop } from './ScrollToTop'

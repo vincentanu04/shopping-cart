@@ -9,8 +9,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <RouterProvider router={router}>
-        <Outlet />
-      </RouterProvider>
+          <Outlet />
+      </RouterProvider>CssBaseline
     </ThemeProvider>
   );
 }
