@@ -33,7 +33,7 @@ const ShoppingCartPage = () => {
                 paddingBlock: '1em',
                 maxHeight: ['unset', 'unset', '64vh'],
               }}>
-                <Box display={'flex'} flexDirection={'column'} gap={4} width={'55vw'}>
+                <Box display={'flex'} flexDirection={'column'} gap={4} width={'57.5vw'}>
                   {
                     Object.values(cart).map((item, index) => (
                       <React.Fragment key={item.id}>
