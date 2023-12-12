@@ -9,7 +9,6 @@ const BEST_SELLING_QUERY = gql`
                     title
                     description
                     featuredImage {
-                        id
                         url
                     }
                     variants(first: 3) {
@@ -17,7 +16,6 @@ const BEST_SELLING_QUERY = gql`
                             node {
                                 price {
                                     amount
-                                    currencyCode
                                 }
                             }
                         }

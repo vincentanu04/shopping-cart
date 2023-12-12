@@ -4,12 +4,10 @@ const MEN_QUERY = gql`
     query {
         collection(id: "gid://shopify/Collection/429493780502") {
             id
-            handle
             title
             description
             image {
-            id
-            url
+                url
             }
             products(first: 100) {
                 edges {
@@ -18,7 +16,6 @@ const MEN_QUERY = gql`
                         title
                         description
                         featuredImage {
-                            id
                             url
                         }
                         variants(first: 3) {
@@ -26,7 +23,6 @@ const MEN_QUERY = gql`
                                 node {
                                     price {
                                         amount
-                                        currencyCode
                                     }
                                 }
                             }

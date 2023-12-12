@@ -7,21 +7,13 @@ const PRODUCT_QUERY = gql`
       title
       description
       featuredImage {
-        id
         url
       }
       variants(first: 3) {
         edges {
-          cursor
           node {
-            id
-            title
-            image {
-              url
-            }
             price {
               amount
-              currencyCode
             }
           }
         }
